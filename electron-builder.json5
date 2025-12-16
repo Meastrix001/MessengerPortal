@@ -1,0 +1,36 @@
+/**
+ * @see https://www.electron.build/configuration/configuration
+ */
+{
+  appId: "com.app.messenger-portal",
+  asar: true,
+  directories: {
+    output: "release/messenger-portal/${version}",
+  },
+  files: ["dist-electron", "dist"],
+  mac: {
+    artifactName: "${productName}_${version}.${ext}",
+    target: ["dmg", "zip"],
+  },
+  win: {
+    target: [
+      {
+        target: "nsis",
+        arch: ["x64"],
+      },
+    ],
+    artifactName: "${productName}_${version}.${ext}",
+  },
+  nsis: {
+    oneClick: false,
+    perMachine: false,
+    allowToChangeInstallationDirectory: true,
+    deleteAppDataOnUninstall: false,
+  },
+  publish: {
+    repo: "MessengerPortal",
+    provider: "github",
+    owner: "brandwebagency",
+    channel: "main",
+  },
+}
