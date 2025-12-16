@@ -6,15 +6,10 @@ interface IBrowserWindowsCustom {
   crashMode: () => void;
 }
 type EventType = "match-event" | "player-event" | "game-event";
-
 export class BrowserWindowsCustom
   extends BrowserWindow
   implements IBrowserWindowsCustom {
-  constructor(debugMode?: boolean) {
-
-    const preload = join(__dirname, "../preload/index.js");
-    const url = process.env.VITE_DEV_SERVER_URL;
-    const indexHtml = join(process.env.DIST, "index.html");
+  constructor() {
     super({
       title: "messenger-portal",
       icon: join(__dirname, "assets", "icon.ico"),
@@ -22,24 +17,11 @@ export class BrowserWindowsCustom
       height: 1080,
       autoHideMenuBar: true, // 👈 THIS
       webPreferences: {
-        preload,
         devTools: false,
         contextIsolation: false,
         nodeIntegration: true,
       },
     });
-
-    if (!debugMode) {
-      // this.removeMenu();
-      // this.webContents.openDevTools();
-    } else {
-    }
-
-    if (url) {
-      this.loadURL(url);
-    } else {
-      this.loadFile(indexHtml);
-    }
   }
 
   crashMode() { }

@@ -14,14 +14,6 @@ process.env.PUBLIC = process.env.VITE_DEV_SERVER_URL
   ? join(process.env.DIST_ELECTRON, "../public")
   : process.env.DIST;
 
-// Loader info
-process.env.APP_LOGO = "./logo.svg";
-process.env.APP_STYLES = "./loading.css";
-process.env.APP_BRANDNAME = "Messenger portal";
-process.env.APP_DESC = "Loading chats..";
-
-const preload = join(__dirname, "../preload/index.js");
-
 // Disable GPU Acceleration for Windows 7
 if (release().startsWith("6.1")) app.disableHardwareAcceleration();
 
@@ -34,12 +26,11 @@ if (!app.requestSingleInstanceLock()) {
 }
 
 app.whenReady().then(() => {
-  const win = new BrowserWindowsCustom(false);
+  const win = new BrowserWindowsCustom();
 
   // Create BrowserView for Messenger
   const view = new BrowserView({
     webPreferences: {
-      preload,
       nodeIntegration: false,
       contextIsolation: true,
     }
