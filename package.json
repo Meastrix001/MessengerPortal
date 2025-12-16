@@ -1,5 +1,5 @@
 {
-  "name": "messenger-portal",
+  "name": "Messenger-portal",
   "productName": "Messenger portal",
   "version": "1.3.14",
   "main": "dist-electron/main/index.js",

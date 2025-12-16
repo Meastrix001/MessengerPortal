@@ -1,4 +1,4 @@
-import { app, ipcMain, globalShortcut, BrowserView } from "electron";
+import { app, ipcMain, BrowserView } from "electron";
 import { release } from "node:os";
 import { join } from "node:path";
 
@@ -40,12 +40,12 @@ app.whenReady().then(() => {
 
   // Set bounds to fill the window
   const { width, height } = win.getBounds();
-  view.setBounds({ x: 0, y: 0, width, height });
+  view.setBounds({ x: 0, y: 0, width, height: height - 32 });
 
   // Auto-resize when window resizes
   win.on('resize', () => {
     const { width, height } = win.getBounds();
-    view.setBounds({ x: 0, y: 0, width, height });
+    view.setBounds({ x: 0, y: 0, width, height: height - 32 });
   });
 
   // Load Messenger

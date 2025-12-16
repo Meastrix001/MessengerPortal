@@ -30,7 +30,7 @@
   publish: {
     repo: "MessengerPortal",
     provider: "github",
-    owner: "brandwebagency",
+    owner: "Meastrix001",
     channel: "main",
   },
 }

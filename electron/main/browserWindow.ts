@@ -11,7 +11,7 @@ export class BrowserWindowsCustom
   implements IBrowserWindowsCustom {
   constructor() {
     super({
-      title: "messenger-portal",
+      title: "Messenger portal",
       icon: join(__dirname, "assets", "icon.ico"),
       width: 1920,
       height: 1080,
