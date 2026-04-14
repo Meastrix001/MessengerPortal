@@ -49,7 +49,7 @@ app.whenReady().then(() => {
   });
 
   // Load Messenger
-  view.webContents.loadURL('https://www.messenger.com/');
+  view.webContents.loadURL('https://fb.com/messages');
 
   // Optional: Handle navigation
   view.webContents.on('did-fail-load', (event, errorCode, errorDescription) => {

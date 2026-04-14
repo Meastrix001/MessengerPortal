@@ -32,5 +32,6 @@
     provider: "github",
     owner: "Meastrix001",
     channel: "main",
+    releaseType: "release",
   },
 }

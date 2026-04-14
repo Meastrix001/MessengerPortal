@@ -1,7 +1,7 @@
 {
-  "name": "Messenger-portal",
+  "name": "messenger-portal",
   "productName": "Messenger portal",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "main": "dist-electron/main/index.js",
   "description": "Messenger app",
   "author": "NR",
@@ -36,7 +36,9 @@
     "build:mac": "electron-vite build && electron-builder --mac",
     "build:linux": "electron-vite build && electron-builder --linux",
     "build:no-publish": "npm run build && electron-builder --win --publish never",
-    "build:full": "npm run build && electron-builder --win --publish always"
+    "build:full": "yarn inc:ver && yarn build && electron-builder --win --publish always && yarn open:release",
+    "inc:ver": "node -e \"const fs=require('fs');const p=JSON.parse(fs.readFileSync('package.json'));const v=p.version.split('.');v[2]=+v[2]+1;p.version=v.join('.');fs.writeFileSync('package.json',JSON.stringify(p,null,2)+'\\n');console.log('Version bumped to '+p.version)\"",
+    "open:release": "start https://github.com/Meastrix001/MessengerPortal/releases"
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
